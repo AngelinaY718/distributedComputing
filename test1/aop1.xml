@@ -1,0 +1,7 @@
+<aops>
+    <aop>
+    <method>logger</method>
+    <type>after</type>
+    <method>draw</method>
+    </aop>
+</aops>
