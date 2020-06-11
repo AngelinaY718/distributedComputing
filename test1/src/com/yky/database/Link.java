@@ -10,15 +10,19 @@ public class Link  implements DataSource {
     private LinkedList<Connection> linkedList=new LinkedList<Connection>();
 
     public Link() {
-        String user = "sa";
-        //密码
-        String pwd = "kimjoonwoon0824";
+        String user = "admin";
+        String pwd = "Admin@123";
 
-        String url = "jdbc:sqlserver://127.0.0.1:1433;databasename=分布式实验1";
+        //String user = "root";
+        //String pwd = "lj0211";
+        //String url = "jdbc:sqlserver://127.0.0.1:1433;databasename=分布式实验1";
+        String url = "jdbc:mysql://39.101.217.212:3306/rpc?serverTimezone=GMT%2B8&useSSL=false&useUnicode=true&characterEncoding=UTF-8";
+        //String url = "jdbc:mysql://localhost:3306/rpc?serverTimezone=GMT%2B8&useSSL=false";
         for(int i=0;i<10;i++){
             try {
                 //选择SQLServerDriver驱动
-                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                //Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                Class.forName("com.mysql.jdbc.Driver"); //classLoader,加载对应驱动
                 //开始连接
                Connection conn = DriverManager.getConnection(url, user, pwd);
                linkedList.add(conn);
