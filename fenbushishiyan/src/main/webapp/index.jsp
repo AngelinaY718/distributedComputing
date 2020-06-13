@@ -124,7 +124,7 @@
                     <div class="block-content">
                         <div class="content">
                             <div class="left">
-                                <form id="form-login" class="rounded" action="homepage.html">
+                                <form id="form-login" class="rounded" action="login.do" method="post">
                                     <div class="form-content">
                                         <div class="form-group">
                                             <%--@declare id="loginusername"--%><label for="loginUserName">Username</label>
@@ -143,7 +143,7 @@
                                 </form><!-- #form-login end -->
                             </div><!-- .left end -->
                             <div class="right">
-                                <img src="images/files/logo-header.PNG" />
+                                <img src="images/files/logo-header.png" />
                                 <br>
                                 <h3><b>欢迎使用Tickets航班订票网站！</b></h3>
                             </div>
