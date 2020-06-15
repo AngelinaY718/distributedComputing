@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -51,7 +52,7 @@
 									<b>欢迎使用！</b>
 									<div class="position-right">
 										<ul class="list-info">
-											<li><a class="popup-btn-logout" href="index.html">Logout</a></li>
+											<li><a class="popup-btn-logout" href="index.jsp">Logout</a></li>
 										</ul><!-- .list-info end -->
 									</div><!-- .position-right end -->
 								</div><!-- .hb-content end -->
@@ -72,14 +73,14 @@
 							<div class="col-md-12">
 
 								<div class="hb-content">
-									<a class="logo logo-header" href="index.html">
+									<a class="logo logo-header" href="homepage.jsp">
 										<img src="images/files/logo-header.png" data-logo-alt="images/files/logo-header-alt.png" alt="">
 									</a><!-- .logo end -->
 									<ul id="menu-main" class="menu-main">
 										<li>
 											<a href="javascript:;">更多</a>
 											<ul class="sub-menu">
-												<li><a href="orderlist.html">我的订单</a></li>
+												<li><a href="orderlist.jsp">我的订单</a></li>
 											</ul><!-- .sub-menu end -->
 										</li>
 									</ul><!-- #menu-main end -->
@@ -95,58 +96,53 @@
 
 		</header><!-- #header end -->
 
-		<!-- Banner
+		<!-- Content
 		============================================= -->
-		<section id="banner">
-
-			<div class="banner-parallax" data-banner-height="550">
-				<img src="images/files/parallax-bg/img-4.jpg" alt="">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="banner-center-box">
-									<h1><b>Choose Flight</b></h1>
-									<div class="banner-reservation-tabs">
-										<ul class="br-tabs-content">
-											<li class="active">
-												<form class="form-banner-reservation form-inline style-2 form-h-50" action="searchresult.html">
-													<div class="form-group">
-														<input type="text" name="brPlaceStart" class="form-control" placeholder="From" list="fromlist">
-														<datalist id="fromlist">
-															<option>北京</option>
-															<option>上海</option>
-														</datalist>
-													</div><!-- .form-group end -->
-													<div class="form-group">
-														<input type="text" name="brPlaceEnd" class="form-control" placeholder="To" list="tolist">
-														<datalist id="tolist">
-															<option>北京</option>
-															<option>上海</option>
-														</datalist>
-													</div><!-- .form-group end -->
-													<div class="form-group">
-														<input type="text" name="brTimeStart" class="form-control" placeholder="今日" list="datelist">
-														<datalist id="datelist">
-															<option>今日</option>
-															<option>明日</option>
-															<option>后天</option>
-														</datalist>
-													</div><!-- .form-group end -->
-													<div class="form-group">
-														<button type="submit" class="form-control icon"><i class="fas fa-search"></i></button>
-													</div><!-- .form-group end -->
-												</form><!-- .form-banner-reservation end -->
+		<section id="content">
+			<div id="content-wrap">
+				<!-- === Section Flat =========== -->
+				<div class="section-flat">
+					<div class="section-content">
+						<div class="container">
+							<div class="row">
+								<div class="content-main">
+									<div class="block-content-2 style-3">
+										<h3><b>all order info</b></h3>
+										<div class="block-title">
+											<h3><span class="colored">01</span></h3>
+										</div><!-- .block-title end -->
+										<ul class="list-traveller-info">
+											<li>
+												<span class="title">Flight Number:</span>
 											</li>
-										</ul><!-- .br-tabs-content end -->
-									</div><!-- .banner-reservation-tabs end -->
-								</div><!-- .banner-center-box end -->
-							</div><!-- .col-md-12 end -->
-						</div><!-- .row end -->
-					</div><!-- .container end -->
-				</div><!-- .slide-content end -->
-			</div><!-- .banner-parallax end -->
+											<li>
+												<span class="title">Name:</span>
+											</li>
+											<li>
+												<span class="title">Phone：</span>
+											</li>
+											<li>
+												<span class="title">Date：</span>
+											</li>
+											<li>
+												<span class="title">Airport：</span>
+											</li>
+											<li>
+												<span class="title">Money：</span>
+											</li>
+										</ul><!-- .list-info end -->
+									</div><!-- .content-main end -->
+							</div><!-- .row end -->
+							</div>
+							</div>
+						</div><!-- .container end -->
 
-		</section><!-- #banner end -->
+					</div><!-- .section-content end -->
+
+				</div><!-- .section-flat end -->
+
+			</div><!-- #content-wrap -->
+		</section><!-- #content end -->
 
 		<!-- Footer
 		============================================= -->
@@ -174,9 +170,7 @@
 
 			</div><!-- #footer-bar-2 end -->
 		</footer><!-- #footer end -->
-
 	</div><!-- #full-container end -->
-
 	<!-- External JavaScripts
 	============================================= -->
 	<script src="js/jquery.js"></script>

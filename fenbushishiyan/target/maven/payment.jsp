@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -72,7 +73,7 @@
 									<b>欢迎使用！</b>
 									<div class="position-right">
 										<ul class="list-info">
-											<li><a class="popup-btn-logout" href="index.html">Logout</a></li>
+											<li><a class="popup-btn-logout" href="index.jsp">Logout</a></li>
 										</ul><!-- .list-info end -->
 									</div><!-- .position-right end -->
 								</div><!-- .hb-content end -->
@@ -93,14 +94,14 @@
 							<div class="col-md-12">
 
 								<div class="hb-content">
-									<a class="logo logo-header" href="homepage.html">
+									<a class="logo logo-header" href="homepage.jsp">
 										<img src="images/files/logo-header.png" data-logo-alt="images/files/logo-header-alt.png" alt="">
 									</a><!-- .logo end -->
 									<ul id="menu-main" class="menu-main">
 										<li>
 											<a href="javascript:;">更多</a>
 											<ul class="sub-menu">
-												<li><a href="orderlist.html">我的订单</a></li>
+												<li><a href="orderlist.jsp">我的订单</a></li>
 											</ul><!-- .sub-menu end -->
 										</li>
 									</ul><!-- #menu-main end -->

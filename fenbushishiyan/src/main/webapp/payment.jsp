@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -29,6 +30,27 @@
 	<!-- Title
 	============================================= -->
 	<title>Ticket</title>
+	
+	<!-- JavaScprit
+	============================================= -->
+	<SCRIPT LANGUAGE="JavaScript">
+	        function createCode(len)
+	        {
+	            var seed = new Array(
+	                    'abcdefghijklmnopqrstuvwxyz',
+	                    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+	                    '0123456789'
+	            );               //创建需要的数据数组
+	            var idx,i;
+	            var result = '';   //返回的结果变量
+	            for (i=0; i<len; i++) //根据指定的长度
+	            {
+	                idx = Math.floor(Math.random()*3); //获得随机数据的整数部分-获取一个随机整数
+	                result += seed[idx].substr(Math.floor(Math.random()*(seed[idx].length)), 1);//根据随机数获取数据中一个值
+	            }
+	            return result; //返回随机结果
+	        }
+	    </SCRIPT>
 
 </head>
 
@@ -51,7 +73,7 @@
 									<b>欢迎使用！</b>
 									<div class="position-right">
 										<ul class="list-info">
-											<li><a class="popup-btn-logout" href="index.html">Logout</a></li>
+											<li><a class="popup-btn-logout" href="index.jsp">Logout</a></li>
 										</ul><!-- .list-info end -->
 									</div><!-- .position-right end -->
 								</div><!-- .hb-content end -->
@@ -72,14 +94,14 @@
 							<div class="col-md-12">
 
 								<div class="hb-content">
-									<a class="logo logo-header" href="homepage.html">
+									<a class="logo logo-header" href="homepage.jsp">
 										<img src="images/files/logo-header.png" data-logo-alt="images/files/logo-header-alt.png" alt="">
 									</a><!-- .logo end -->
 									<ul id="menu-main" class="menu-main">
 										<li>
 											<a href="javascript:;">更多</a>
 											<ul class="sub-menu">
-												<li><a href="orderlist.html">我的订单</a></li>
+												<li><a href="orderlist.jsp">我的订单</a></li>
 											</ul><!-- .sub-menu end -->
 										</li>
 									</ul><!-- #menu-main end -->
@@ -109,66 +131,37 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12">
-									<div class="box-banner">
-										<a href="javascript:;" class="mb-50"><img src="images/files/box-banner/img-1.jpg" alt=""></a>
-									</div><!-- .box-banner end -->
-								</div><!-- .col-md-12 end -->
-								<div class="col-md-12">
-									
 									<div class="page-single-content sidebar-left">
-										
 										<div class="row">
-												<div class="content-main">
-													<div class="block-content-2">
-														<div class="trip-sorter">
-															<span>Sort By:</span>
-															<form>
-																<ul class="list-trip-sorter">
-																		<li>
-																			<button>出发时间</button>
-																		</li>
-																		<li>
-																			<button>机票价格</button>
-																		</li>
-																	</ul><!-- .list-stip-sorter end -->
-																
-															</form>
-														</div><!-- .trip-sorter end -->
-													</div><!-- .block-content-2 end -->
-													<div class="block-content-2">
-														<div class="box-result">
-															<ul class="list-search-result">
-																<ul class="result-single">
-																	<li>
-																		<img src="images/files/logo-companies/img-1.png" alt="">
-																		EgyptAir
-																	</li>
-																	<li>
-																		Cairo
-																		<span class="date">22:30</span>
-																	</li>
-																	<li>
-																		<span class="shape-distance"></span>
-																	</li>
-																	<li>
-																		Sharm El Sheik
-																		<span class="date">23:30</span>
-																	</li>
-																	<li>
-																		<span class="duration">01h 00m <span> | Direct</span></span>
-																	</li>
-																</ul><!-- .result-single end -->
-															</ul><!-- .list-search-result end -->
-															<div class="result-price">
-																<div class="price">
-																	RMB<span class="value">4218.96</span>
-																	<span class="description">/1人</span>
-																</div><!-- .price end -->
-																<a class="btn small colorful-transparent hover-colorful" href="information.html">Book Now</a>
-															</div><!-- .result-price end -->
-														</div><!-- .box-result end -->
-													</div><!-- .block-content-2 end -->
-												</div><!-- .content-main end -->
+											<div class="content-main">
+												<div class="block-content-2">
+													<div class="block-title">
+														<h3><span class="colored">02</span> Payment</h3>
+													</div><!-- .block-title end -->
+													<form id="form-hotel-booking" action="confirmation.html">
+														<div class="form-content">
+															<div class="form-group">
+																<div class="fields-row fields-2">
+																	<div class="box-field">
+																		<label for="hbcheckCode">支付验证码</label>
+																		<input type="text" name="hbcheckCode" id="hbcheckCode" class="form-control" placeholder="">
+																	</div><!-- .box-field end -->
+																	<div class="box-field">
+																		<label id="autoRandom" value=""></label>
+																		<INPUT TYPE="button" VALUE="获取验证码" ONCLICK="autoRandom.innerHTML=createCode(6)">
+																		<script type="text/javascript">
+																		    window.onload()=autoRandom.innerHTML=createCode(6);
+																		</script>
+																	</div><!-- .box-field end -->
+																</div><!-- .fields-row end -->
+															</div><!-- .form-group end -->
+															<div class="form-group">
+																<input type="submit" class="form-control" value="Submit Booking">
+															</div><!-- .form-group end -->
+														</div><!-- .form-content end -->
+													</form><!-- #form-hotel-booking end -->
+												</div><!-- .block-content-2 end -->
+											</div><!-- .content-main end -->
 										</div><!-- .row end -->
 									</div><!-- .page-single-content end -->
 								</div><!-- .col-md-12 end -->
@@ -178,26 +171,25 @@
 				</div><!-- .section-flat end -->
 			</div><!-- #content-wrap -->
 		</section><!-- #content end -->
-
 		<!-- Footer
 		============================================= -->
 		<footer id="footer">
-			<div id="footer-bar-2" class="footer-bar text-white">
-				<div class="footer-bar-wrap">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="fb-row">
-									<div class="copyrights-message">
-										<span>All right reserved to the crew of "Can't finish experiment" ©2020</span>
-									</div><!-- .copyrights-message end -->
-								</div><!-- .fb-row end -->
-							</div><!-- .col-md-12 end -->
-						</div><!-- .row end -->
-					</div><!-- .container end -->
-				</div><!-- .footer-bar-wrap -->
-			</div><!-- #footer-bar-2 end -->
-		</footer><!-- #footer end -->
+				<div id="footer-bar-2" class="footer-bar text-white">
+					<div class="footer-bar-wrap">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="fb-row">
+										<div class="copyrights-message">
+											<span>All right reserved to the crew of "Can't finish experiment" ©2020</span>
+										</div><!-- .copyrights-message end -->
+									</div><!-- .fb-row end -->
+								</div><!-- .col-md-12 end -->
+							</div><!-- .row end -->
+						</div><!-- .container end -->
+					</div><!-- .footer-bar-wrap -->
+				</div><!-- #footer-bar-2 end -->
+			</footer><!-- #footer end -->
 	</div><!-- #full-container end -->
 	<!-- External JavaScripts
 	============================================= -->

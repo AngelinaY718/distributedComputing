@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -51,7 +52,7 @@
 									<b>欢迎使用！</b>
 									<div class="position-right">
 										<ul class="list-info">
-											<li><a class="popup-btn-logout" href="index.html">Logout</a></li>
+											<li><a class="popup-btn-logout" href="index.jsp">Logout</a></li>
 										</ul><!-- .list-info end -->
 									</div><!-- .position-right end -->
 								</div><!-- .hb-content end -->
@@ -72,14 +73,14 @@
 							<div class="col-md-12">
 
 								<div class="hb-content">
-									<a class="logo logo-header" href="homepage.html">
+									<a class="logo logo-header" href="homepage.jsp">
 										<img src="images/files/logo-header.png" data-logo-alt="images/files/logo-header-alt.png" alt="">
 									</a><!-- .logo end -->
 									<ul id="menu-main" class="menu-main">
 										<li>
 											<a href="javascript:;">更多</a>
 											<ul class="sub-menu">
-												<li><a href="orderlist.html">我的订单</a></li>
+												<li><a href="orderlist.jsp">我的订单</a></li>
 											</ul><!-- .sub-menu end -->
 										</li>
 									</ul><!-- #menu-main end -->
@@ -98,79 +99,78 @@
 		<!-- Content
 		============================================= -->
 		<section id="content">
-
 			<div id="content-wrap">
-
 				<!-- === Section Flat =========== -->
 				<div class="section-flat">
-
 					<div class="section-content">
-
 						<div class="container">
 							<div class="row">
-								<div class="col-md-12">
-									<div class="page-single-content sidebar-left">
-										<div class="row">
-											<div class="content-main">
-												<div class="block-content-2">
-													<div class="block-title">
-														<h3><span class="colored">01</span> USer Info</h3>
-													</div><!-- .block-title end -->
-													<form id="form-hotel-booking" action="payment.html">
-														<div class="form-content">
-															<div class="form-group">
-																<div class="fields-row fields-2">
-																	<div class="box-field">
-																		<label for="hbName"> Name</label>
-																		<input type="text" name="hbName" id="hbName" class="form-control" placeholder="">
-																	</div><!-- .box-field end -->
-																</div><!-- .fields-row end -->
-															</div><!-- .form-group end -->
-															<div class="form-group">
-																<div class="fields-row fields-2">
-																	<div class="box-field">
-																		<label for="hbPhone">Phone</label>
-																		<input type="text" name="hbPhone" id="hbPhone" class="form-control" placeholder="">
-																	</div><!-- .box-field end -->
-																</div><!-- .fields-row end -->
-															</div><!-- .form-group end -->
-															<div class="form-group">
-																<input type="submit" class="form-control" value="Proceed to Next Step">
-															</div><!-- .form-group end -->
-														</div><!-- .form-content end -->
-													</form><!-- #form-hotel-booking end -->
-												</div><!-- .block-content-2 end -->
-											</div><!-- .content-main end -->
-										</div><!-- .row end -->
-									</div><!-- .page-single-content end -->
-								</div><!-- .col-md-12 end -->
+								<div class="content-main">
+									<div class="block-content-2 style-3">
+										<div class="block-title">
+											<h3><span class="colored">03</span>Ticket Info</h3>
+										</div><!-- .block-title end -->
+										<div class="booking-msg-confirm">
+											订票成功！您的信息如下！
+										</div><!-- .booking-msg-confirm end -->
+										<ul class="list-traveller-info">
+											<li>
+												<span class="title">Flight Number:</span>
+											</li>
+											<li>
+												<span class="title">Name:</span>
+											</li>
+											<li>
+												<span class="title">Phone：</span>
+											</li>
+											<li>
+												<span class="title">Date：</span>
+											</li>
+											<li>
+												<span class="title">Airport：</span>
+											</li>
+											<li>
+												<span class="title">Money：</span>
+											</li>
+										</ul><!-- .list-info end -->
+									</div><!-- .content-main end -->
 							</div><!-- .row end -->
+							</div>
+							</div>
 						</div><!-- .container end -->
+
 					</div><!-- .section-content end -->
+
 				</div><!-- .section-flat end -->
-			</div><!-- #content-wrap -->
 		</section><!-- #content end -->
+
 		<!-- Footer
 		============================================= -->
 		<footer id="footer">
 			<div id="footer-bar-2" class="footer-bar text-white">
+
 				<div class="footer-bar-wrap">
+
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
+
 								<div class="fb-row">
 									<div class="copyrights-message">
 										<span>All right reserved to the crew of "Can't finish experiment" ©2020</span>
 									</div><!-- .copyrights-message end -->
+
 								</div><!-- .fb-row end -->
+
 							</div><!-- .col-md-12 end -->
 						</div><!-- .row end -->
 					</div><!-- .container end -->
+
 				</div><!-- .footer-bar-wrap -->
+
 			</div><!-- #footer-bar-2 end -->
 		</footer><!-- #footer end -->
 	</div><!-- #full-container end -->
-
 	<!-- External JavaScripts
 	============================================= -->
 	<script src="js/jquery.js"></script>

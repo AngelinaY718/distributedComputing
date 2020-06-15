@@ -27,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/src/com/yky/client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yky/client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test1.iml" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,12 +79,24 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="应用程序.Main">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.server">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.yky.client" />
       <module name="test1" />
@@ -108,15 +121,10 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="应用程序.server" />
-      <item itemvalue="应用程序.server1" />
-      <item itemvalue="应用程序.Main" />
+      <item itemvalue="Application.server" />
+      <item itemvalue="Application.server1" />
+      <item itemvalue="Application.Main" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="应用程序.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -140,26 +148,33 @@
       <workItem from="1591665666419" duration="1963000" />
       <workItem from="1591671980734" duration="4435000" />
       <workItem from="1591751573509" duration="22937000" />
+<<<<<<< HEAD
       <workItem from="1591835481257" duration="3059000" />
       <workItem from="1592032867111" duration="2021000" />
       <workItem from="1592127687290" duration="1884000" />
+=======
+      <workItem from="1591835481257" duration="2305000" />
+      <workItem from="1592012704106" duration="590000" />
+      <workItem from="1592015730341" duration="634000" />
+>>>>>>> 4c03187a28765f7ff16ba22c2e8c4d0dc5037fb8
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="843" y="91" key="#com.intellij.ide.util.MemberChooser" timestamp="1592033015594">
