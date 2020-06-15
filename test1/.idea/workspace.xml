@@ -20,33 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3132d362-778a-4a23-a948-29dcd86802cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_44_bin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yky/entity/Company.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yky/entity/Flight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yky/entity/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yky/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yky/iml/FlightService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yky/iml/FlightServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jedis_3_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/yky/iml/Payment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/yky/iml/PaymentImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/database/Link.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/database/Link.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/entity/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/entity/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/entity/map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/entity/map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/entity/request.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/entity/request.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/entity/response.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/entity/response.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/iml/ATMcard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/iml/ATMcard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/iml/Atm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/iml/Atm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/server1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/server1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/serversocker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/serversocker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/sockerclient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/sockerclient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/xmlandproxy/ProxyHandler1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/xmlandproxy/ProxyHandler1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/xmlandproxy/ProxyHandler1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/xmlandproxy/ProxyHandler1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/xmlandproxy/XmlReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/xmlandproxy/XmlReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test1/com/yky/xmlandproxy/check.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test1/com/yky/xmlandproxy/check.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/yky/client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yky/client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yky/database/Link.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yky/database/Link.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test1.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +140,9 @@
       <workItem from="1591665666419" duration="1963000" />
       <workItem from="1591671980734" duration="4435000" />
       <workItem from="1591751573509" duration="22937000" />
-      <workItem from="1591835481257" duration="2305000" />
+      <workItem from="1591835481257" duration="3059000" />
+      <workItem from="1592032867111" duration="2021000" />
+      <workItem from="1592127687290" duration="1884000" />
     </task>
     <servers />
   </component>
@@ -182,26 +162,26 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="843" y="91" key="#com.intellij.ide.util.MemberChooser" timestamp="1591837112056">
+    <state x="843" y="91" key="#com.intellij.ide.util.MemberChooser" timestamp="1592033015594">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="843" y="91" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1591837112056" />
-    <state width="1493" height="198" key="GridCell.Tab.0.bottom" timestamp="1591837905676">
+    <state x="843" y="91" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1592033015594" />
+    <state width="746" height="393" key="GridCell.Tab.0.bottom" timestamp="1591842374808">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="198" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591837905676" />
-    <state width="1493" height="198" key="GridCell.Tab.0.center" timestamp="1591837905676">
+    <state width="746" height="393" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591842374808" />
+    <state width="746" height="393" key="GridCell.Tab.0.center" timestamp="1591842374807">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="198" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591837905676" />
-    <state width="1493" height="198" key="GridCell.Tab.0.left" timestamp="1591837905675">
+    <state width="746" height="393" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591842374807" />
+    <state width="746" height="393" key="GridCell.Tab.0.left" timestamp="1591842374807">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="198" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591837905675" />
-    <state width="1493" height="198" key="GridCell.Tab.0.right" timestamp="1591837905676">
+    <state width="746" height="393" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591842374807" />
+    <state width="746" height="393" key="GridCell.Tab.0.right" timestamp="1591842374808">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="198" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591837905676" />
+    <state width="746" height="393" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591842374808" />
     <state x="270" y="56" key="SettingsEditor" timestamp="1591790820778">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

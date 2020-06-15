@@ -32,8 +32,8 @@ public class client {
         ProxyHandler1 proxyHandler1=new ProxyHandler1();
         //ATMcard atm= proxyHandler1.getProxy(ATMcard.class,"127.0.0.1",8280);
         //ATMcard atm= proxyHandler1.getProxy(ATMcard.class,"127.0.0.1",port);
-        //FlightService flight = proxyHandler1.getProxy(FlightService.class,"127.0.0.1",port);
-        FlightService flight = new FlightServiceImp();
+        FlightService flight = proxyHandler1.getProxy(FlightService.class,"127.0.0.1",port);
+        FlightService flightService = new FlightServiceImp();
         if(flight==null){
             System.out.println(1);
         }
