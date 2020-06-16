@@ -1,7 +1,7 @@
 package C_and_S;
 
-import com.yky.entity.request;
-import com.yky.entity.response;
+import JavaBean.request;
+import JavaBean.response;
 
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -15,7 +15,7 @@ import java.util.Map;
 public class serversocker implements Runnable{
     private Socket sockClient;
     private Map<String, Class> serviceRegistry = new HashMap<String, Class>();
-    private response response = new response();
+    private JavaBean.response response = new response();
 
     public serversocker (Socket sock) {
         super();

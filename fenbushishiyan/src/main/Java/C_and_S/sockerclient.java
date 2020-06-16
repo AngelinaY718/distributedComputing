@@ -1,10 +1,9 @@
 package C_and_S;
 
-import com.yky.entity.Card;
-import com.yky.entity.request;
-import com.yky.entity.response;
-import com.yky.xmlandproxy.XmlReader;
-import com.yky.xmlandproxy.check;
+
+
+import JavaBean.request;
+import JavaBean.response;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
@@ -42,96 +41,25 @@ public class sockerclient {
             ObjectOutputStream objOut;
             ObjectInputStream objIn;
             response response = null;
-            if(request.getMethodName().equals("login")){
-                XmlReader.readXml("aop.xml");
-                Class<?> clazz = check.class;
-                //处理before方法
-                if(beforeMethod!=null&&beforeMethod.length()>0){
-                    Method m=clazz.getMethod(beforeMethod);
-                    Object obj = clazz.newInstance();
-                    m.invoke(obj,request.getParams());
+            try {
+                objOut = new ObjectOutputStream(out);
+                objOut.writeObject(request);
+                objOut.flush();
+                objIn = new ObjectInputStream(in);
+                Object res = objIn.readObject();
+                if (res instanceof response) {
+                    response = (response) res;
+                } else {
+                    throw new RuntimeException("返回對象不正确!!!");
                 }
-                //处理目标方法
-                try {
-                    objOut = new ObjectOutputStream(out);
-                    objOut.writeObject(request);
-                    objOut.flush();
-                    objIn = new ObjectInputStream(in);
-                    Object res = objIn.readObject();
-                    if (res instanceof response) {
-                        response = (response) res;
-                    } else {
-                        throw new RuntimeException("返回對象不正确!!!");
-                    }
-                } catch (Exception e) {
-                    System.out.println("error:   " + e.getMessage());
-                } finally {
-                    out.close();
-                    in.close();
-                    sock.close();
-                }
-                //处理after方法
-                if(afterMethod!=null&&afterMethod.length()>0){
-                    Method m=clazz.getMethod(afterMethod,String.class,String.class);
-                    Object obj = clazz.newInstance();
-                    m.invoke(obj,request.getParams());
-                }
+            } catch (Exception e) {
+                System.out.println("error:   " + e.getMessage());
+            } finally {
+                out.close();
+                in.close();
+                sock.close();
             }
-           /* else if(request.getMethodName().equals("draw")){
-                XmlReader.readXml("aop1.xml");
-                Class<?> clazz = check.class;
-                //处理before方法
-                if(beforeMethod!=null&&beforeMethod.length()>0){
-                    Method m=clazz.getMethod(beforeMethod);
-                    Object obj = clazz.newInstance();
-                    m.invoke(obj,request.getParams());
-                }
-                //处理目标方法
-                try {
-                    objOut = new ObjectOutputStream(out);
-                    objOut.writeObject(request);
-                    objOut.flush();
-                    objIn = new ObjectInputStream(in);
-                    Object res = objIn.readObject();
-                    if (res instanceof response) {
-                        response = (response) res;
-                    } else {
-                        throw new RuntimeException("返回對象不正确!!!");
-                    }
-                } catch (Exception e) {
-                    System.out.println("error:   " + e.getMessage());
-                } finally {
-                    out.close();
-                    in.close();
-                    sock.close();
-                }
-                //处理after方法
-                if(afterMethod!=null&&afterMethod.length()>0){
-                    Method m=clazz.getMethod(afterMethod, Card.class,int.class);
-                    Object obj = clazz.newInstance();
-                    m.invoke(obj,request.getParams());
-                }
-            }*/
-            else {
-                try {
-                    objOut = new ObjectOutputStream(out);
-                    objOut.writeObject(request);
-                    objOut.flush();
-                    objIn = new ObjectInputStream(in);
-                    Object res = objIn.readObject();
-                    if (res instanceof response) {
-                        response = (response) res;
-                    } else {
-                        throw new RuntimeException("返回對象不正确!!!");
-                    }
-                } catch (Exception e) {
-                    System.out.println("error:   " + e.getMessage());
-                } finally {
-                    out.close();
-                    in.close();
-                    sock.close();
-                }
-            }
+
             result=response.getObj();
         }
         else{

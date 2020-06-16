@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -115,60 +117,60 @@
 									</div><!-- .box-banner end -->
 								</div><!-- .col-md-12 end -->
 								<div class="col-md-12">
-									
+
 									<div class="page-single-content sidebar-left">
-										
+
 										<div class="row">
 												<div class="content-main">
 													<div class="block-content-2">
 														<div class="trip-sorter">
 															<span>Sort By:</span>
-															<form>
 																<ul class="list-trip-sorter">
 																		<li>
-																			<button>出发时间</button>
-																		</li>
-																		<li>
-																			<button>机票价格</button>
+																			出发时间
 																		</li>
 																	</ul><!-- .list-stip-sorter end -->
-																
-															</form>
 														</div><!-- .trip-sorter end -->
 													</div><!-- .block-content-2 end -->
-													<div class="block-content-2">
-														<div class="box-result">
-															<ul class="list-search-result">
-																<ul class="result-single">
-																	<li>
-																		<img src="images/files/logo-companies/img-1.png" alt="">
-																		EgyptAir
-																	</li>
-																	<li>
-																		Cairo
-																		<span class="date">22:30</span>
-																	</li>
-																	<li>
-																		<span class="shape-distance"></span>
-																	</li>
-																	<li>
-																		Sharm El Sheik
-																		<span class="date">23:30</span>
-																	</li>
-																	<li>
-																		<span class="duration">01h 00m <span> | Direct</span></span>
-																	</li>
-																</ul><!-- .result-single end -->
-															</ul><!-- .list-search-result end -->
-															<div class="result-price">
-																<div class="price">
-																	RMB<span class="value">4218.96</span>
-																	<span class="description">/1人</span>
-																</div><!-- .price end -->
-																<a class="btn small colorful-transparent hover-colorful" href="information.html">Book Now</a>
-															</div><!-- .result-price end -->
-														</div><!-- .box-result end -->
-													</div><!-- .block-content-2 end -->
+
+													<c:forEach items="${applicationScope.list}" var="item" varStatus="status">
+														<div class="block-content-2"><!--往下循环-->
+															<div class="box-result">
+																<ul class="list-search-result">
+																	<ul class="result-single">
+																		<li>
+																			<img src="images/files/logo-companies/img-1.png" alt="">
+																		</li>
+																		<li>
+																			${item.ticketDepart}
+																			<span class="date">${item.getFlightTime()}</span>
+																		</li>
+																		<li>
+																			<span class="shape-distance"></span>
+																		</li>
+																		<li>
+																			${item.getTicketArrive()}
+																			<span class="date">&nbsp;</span>
+																		</li>
+																		<li>
+																			<span class="duration">剩余${item.getTicketCount()}张<span> | Direct</span></span>
+																		</li>
+																	</ul><!-- .result-single end -->
+																</ul><!-- .list-search-result end -->
+																<div class="result-price">
+																	<div class="price">
+																		RMB<span class="value">${item.getTicketPrice()}</span>
+																		<span class="description">/1人</span>
+																	</div><!-- .price end -->
+																	<form action="information.jsp">
+																		<input type="hidden" name="ticketid" value=${item.getTicketId()}>
+																		<input type="hidden" name="ticketPrice" value=${item.getTicketPrice()}>
+																		<input type="submit" class="form-control rounded" value="Book Now">
+																	</form>
+																</div><!-- .result-price end -->
+															</div>
+														</div><!-- .block-content-2 end -->
+													</c:forEach>
 												</div><!-- .content-main end -->
 										</div><!-- .row end -->
 									</div><!-- .page-single-content end -->

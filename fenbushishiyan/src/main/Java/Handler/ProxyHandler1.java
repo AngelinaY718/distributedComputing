@@ -1,9 +1,7 @@
 package Handler;
 
-import com.yky.entity.request;
-import com.yky.iml.ATMcard;
-import com.yky.sockerclient;
-import com.yky.xmlandproxy.XmlReader;
+import C_and_S.sockerclient;
+import JavaBean.request;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -14,7 +12,7 @@ public class ProxyHandler1{
 	
 	private sockerclient sock = new sockerclient();
 	@SuppressWarnings("unchecked")
-	public  <T> T getProxy(Class<T> clazz,String ip,int i){
+	public  <T> T getProxy(Class<T> clazz, final String ip, final int i){
 		InvocationHandler handler=new InvocationHandler() {
 			@Override
 			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

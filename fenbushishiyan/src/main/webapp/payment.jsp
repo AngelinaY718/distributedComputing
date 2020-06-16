@@ -1,3 +1,4 @@
+<%@ page import="java.util.Random" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -33,25 +34,6 @@
 	
 	<!-- JavaScprit
 	============================================= -->
-	<SCRIPT LANGUAGE="JavaScript">
-	        function createCode(len)
-	        {
-	            var seed = new Array(
-	                    'abcdefghijklmnopqrstuvwxyz',
-	                    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-	                    '0123456789'
-	            );               //创建需要的数据数组
-	            var idx,i;
-	            var result = '';   //返回的结果变量
-	            for (i=0; i<len; i++) //根据指定的长度
-	            {
-	                idx = Math.floor(Math.random()*3); //获得随机数据的整数部分-获取一个随机整数
-	                result += seed[idx].substr(Math.floor(Math.random()*(seed[idx].length)), 1);//根据随机数获取数据中一个值
-	            }
-	            return result; //返回随机结果
-	        }
-	    </SCRIPT>
-
 </head>
 
 <body class="page-single bg-grey with-sidebar footer-dark">
@@ -101,7 +83,7 @@
 										<li>
 											<a href="javascript:;">更多</a>
 											<ul class="sub-menu">
-												<li><a href="orderlist.jsp">我的订单</a></li>
+												<li><a href="orderlist.do">我的订单</a></li>
 											</ul><!-- .sub-menu end -->
 										</li>
 									</ul><!-- #menu-main end -->
@@ -138,20 +120,17 @@
 													<div class="block-title">
 														<h3><span class="colored">02</span> Payment</h3>
 													</div><!-- .block-title end -->
-													<form id="form-hotel-booking" action="confirmation.html">
+													<form id="form-hotel-booking" action="payment.do" method="post">
 														<div class="form-content">
 															<div class="form-group">
 																<div class="fields-row fields-2">
 																	<div class="box-field">
-																		<label for="hbcheckCode">支付验证码</label>
+																		<label for="hbcheckCode">请输入验证码</label>
 																		<input type="text" name="hbcheckCode" id="hbcheckCode" class="form-control" placeholder="">
 																	</div><!-- .box-field end -->
 																	<div class="box-field">
-																		<label id="autoRandom" value=""></label>
-																		<INPUT TYPE="button" VALUE="获取验证码" ONCLICK="autoRandom.innerHTML=createCode(6)">
-																		<script type="text/javascript">
-																		    window.onload()=autoRandom.innerHTML=createCode(6);
-																		</script>
+																		<label id="autoRandom">验证码</label>
+																		<input type="text" readonly unselectable="on" name="hbCode" id="hbCode" class="form-control" value="<%=String.valueOf((new Random().nextInt(8999) + 1000))%>">
 																	</div><!-- .box-field end -->
 																</div><!-- .fields-row end -->
 															</div><!-- .form-group end -->

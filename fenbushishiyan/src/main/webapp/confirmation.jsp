@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -80,7 +81,7 @@
 										<li>
 											<a href="javascript:;">更多</a>
 											<ul class="sub-menu">
-												<li><a href="orderlist.jsp">我的订单</a></li>
+												<li><a href="orderlist.do">我的订单</a></li>
 											</ul><!-- .sub-menu end -->
 										</li>
 									</ul><!-- #menu-main end -->
@@ -115,22 +116,19 @@
 										</div><!-- .booking-msg-confirm end -->
 										<ul class="list-traveller-info">
 											<li>
-												<span class="title">Flight Number:</span>
+												<span class="title">Flight Number:${applicationScope.flight.getFlightNumber()}</span>
 											</li>
 											<li>
-												<span class="title">Name:</span>
+												<span class="title">Name:${applicationScope.order.getUsername()}</span>
 											</li>
 											<li>
-												<span class="title">Phone：</span>
+												<span class="title">Phone：${applicationScope.order.getPhone()}</span>
 											</li>
 											<li>
-												<span class="title">Date：</span>
+												<span class="title">Airport：${applicationScope.flight.getTicketDepart()}&nbsp;TO &nbsp;${applicationScope.flight.getTicketArrive()}</span>
 											</li>
 											<li>
-												<span class="title">Airport：</span>
-											</li>
-											<li>
-												<span class="title">Money：</span>
+												<span class="title">Money：${applicationScope.flight.getTicketPrice()}</span>
 											</li>
 										</ul><!-- .list-info end -->
 									</div><!-- .content-main end -->

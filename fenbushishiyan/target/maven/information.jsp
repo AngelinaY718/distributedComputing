@@ -34,6 +34,12 @@
 </head>
 
 <body class="page-single bg-grey with-sidebar footer-dark">
+<%
+	int ticketid= Integer.parseInt(request.getParameter("ticketid"));
+	int ticketPrice= Integer.parseInt(request.getParameter("tickerPrice"));
+	session.setAttribute("ticketid",ticketid);
+	session.setAttribute("ticketPrice",ticketPrice);
+%>
 
 	<!-- Document Full Container
 	============================================= -->
@@ -117,7 +123,7 @@
 													<div class="block-title">
 														<h3><span class="colored">01</span> USer Info</h3>
 													</div><!-- .block-title end -->
-													<form id="form-hotel-booking" action="payment.jsp">
+													<form id="form-hotel-booking" action="information.do" method="post">
 														<div class="form-content">
 															<div class="form-group">
 																<div class="fields-row fields-2">
