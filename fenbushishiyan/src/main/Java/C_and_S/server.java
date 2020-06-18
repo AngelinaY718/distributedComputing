@@ -2,6 +2,9 @@ package C_and_S;
 
 import Proxy1.FlightService;
 import Proxy1.FlightServiceImp;
+import Proxy1.Redis;
+import Proxy1.RedisImp;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -27,6 +30,7 @@ public class server {
                 Socket sock = serverSocket.accept();
                 serversocker service = new serversocker(sock);
                 service.registerService(FlightService.class, FlightServiceImp.class);
+                service.registerService(Redis.class, RedisImp.class);
                 threadPool.execute(service);
             } catch (IOException e){
                 System.out.println(e.getMessage());

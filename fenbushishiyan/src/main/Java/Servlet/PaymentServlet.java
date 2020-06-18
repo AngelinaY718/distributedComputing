@@ -25,9 +25,12 @@ public class PaymentServlet extends HttpServlet {
 
         String hbcheckCode=request.getParameter("hbcheckCode");
         String hbCode=request.getParameter("hbCode");
-        int price= (int) session.getAttribute("tickerPrice");
+        int price= (int) session.getAttribute("ticketPrice");
         int ticketid= (int) session.getAttribute("ticketid");
         String name= (String) session.getAttribute("name");
+        String username= (String) session.getAttribute("username");
+        String phone= (String) session.getAttribute("phone");
+        System.out.println(price);
 
         ProxyHandler1 proxyHandler1=new ProxyHandler1();
         Redis redis = proxyHandler1.getProxy(Redis.class,"127.0.0.1",12000);
@@ -36,17 +39,12 @@ public class PaymentServlet extends HttpServlet {
         if(hbcheckCode.equals(hbCode)){
             boolean bo=redis.pay(price);
             if(bo){
-                Map<String,String> map=redis.getInfo();
-                Order order=new Order();
-                order.setUserId(name);
-                order.setTicketId(ticketid);
-                order.setUsername(map.get("name"));
-                order.setPhone(map.get("phone"));
-                flightService.order(order);
+                flightService.order(ticketid,name,username,phone);
                 RequestDispatcher rd = request.getRequestDispatcher("confirmation.do");
                 rd.forward(request,response) ;
             }else {
-                redis.removeInfo();
+                session.removeAttribute("username");
+                session.removeAttribute("phone");
                 session.removeAttribute("tickerPrice");
                 session.removeAttribute("tickerid");
                 RequestDispatcher rd = request.getRequestDispatcher("errorpay.jsp");

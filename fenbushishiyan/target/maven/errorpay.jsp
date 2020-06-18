@@ -80,7 +80,7 @@
                                     <li>
                                         <a href="javascript:;">更多</a>
                                         <ul class="sub-menu">
-                                            <li><a href="orderlist.jsp">我的订单</a></li>
+                                            <li><a href="orderlist.do">我的订单</a></li>
                                         </ul><!-- .sub-menu end -->
                                     </li>
                                 </ul><!-- #menu-main end -->

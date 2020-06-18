@@ -27,40 +27,4 @@ public class ProxyHandler1{
 		return (T) Proxy.newProxyInstance(clazz.getClassLoader(),
 				new Class<?>[]{clazz},handler);
 	}
-	/*private ATMcard object;
-	
-	public ProxyHandler1(ATMcard object){
-		this.object = object;
-	}
-	
-	@Override
-	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
-		XmlReader.readXml("aop.xml");
-		Class<?> clazz = check.class;
-		Object result=null;
-		if(method.getName().equals("login")){
-			//处理before方法
-			if(beforeMethod!=null&&beforeMethod.length()>0){
-				Method m=clazz.getMethod(beforeMethod);
-				Object obj = clazz.newInstance();
-				m.invoke(obj,args);
-			}
-
-			//处理目标方法
-			result= method.invoke(object, args);
-
-			//处理after方法
-			if(afterMethod!=null&&afterMethod.length()>0){
-				Method m=clazz.getMethod(afterMethod,String.class,String.class);
-				Object obj = clazz.newInstance();
-				m.invoke(obj,args);
-			}
-		}
-		else {
-			result= method.invoke(object, args);
-		}
-		return result;
-	}*/
-
 }

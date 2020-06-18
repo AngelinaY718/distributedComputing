@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "InformationServlet",urlPatterns = "/information.do")
@@ -21,17 +22,17 @@ public class InformationServlet extends HttpServlet {
         String name=request.getParameter("hbName");
         String phone=request.getParameter("hbPhone");
 
-        ProxyHandler1 proxyHandler1=new ProxyHandler1();
-        Redis redis = proxyHandler1.getProxy(Redis.class,"127.0.0.1",12000);
+        System.out.println(name);
+        System.out.println(phone);
 
-        boolean bo=redis.saveInfo(name,phone);
-        if(bo){
-            RequestDispatcher rd = request.getRequestDispatcher("payment.jsp");
-            rd.forward(request,response) ;
-        }else {
-            RequestDispatcher rd = request.getRequestDispatcher("information.jsp");
-            rd.forward(request,response) ;
-        }
+        HttpSession session=request.getSession();
+        session.setAttribute("username",name);
+        session.setAttribute("phone",phone);
+
+
+        RequestDispatcher rd = request.getRequestDispatcher("payment.jsp");
+        rd.forward(request,response) ;
+
 
     }
 

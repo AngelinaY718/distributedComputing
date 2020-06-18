@@ -1,4 +1,6 @@
+
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -115,20 +117,28 @@
 											订票成功！您的信息如下！
 										</div><!-- .booking-msg-confirm end -->
 										<ul class="list-traveller-info">
+											<c:forEach items="${applicationScope.list}" var="item" varStatus="status">
+												<c:if test="${item.getTicketId()==applicationScope.order.getTicketId()}">
+													<li>
+														<span class="title">Flight Number:${item.getFlightNumber()}</span>
+													</li>
+													<li>
+														<span class="title">Airport：${item.getTicketDepart()}&nbsp;TO &nbsp;${item.getTicketArrive()}</span>
+													</li>
+													<li>
+														<span class="title">Money：${item.getTicketPrice()}</span>
+													</li>
+												</c:if>
+											</c:forEach>
 											<li>
-												<span class="title">Flight Number:${applicationScope.flight.getFlightNumber()}</span>
+												<span class="title">TicketId: ${applicationScope.order.getTicketId()}</span>
 											</li>
+
 											<li>
 												<span class="title">Name:${applicationScope.order.getUsername()}</span>
 											</li>
 											<li>
 												<span class="title">Phone：${applicationScope.order.getPhone()}</span>
-											</li>
-											<li>
-												<span class="title">Airport：${applicationScope.flight.getTicketDepart()}&nbsp;TO &nbsp;${applicationScope.flight.getTicketArrive()}</span>
-											</li>
-											<li>
-												<span class="title">Money：${applicationScope.flight.getTicketPrice()}</span>
 											</li>
 										</ul><!-- .list-info end -->
 									</div><!-- .content-main end -->

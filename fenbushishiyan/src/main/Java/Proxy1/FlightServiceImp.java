@@ -11,8 +11,6 @@ import java.util.List;
 
 public class FlightServiceImp implements FlightService{
 
-    private Link dataSource = new Link();
-    private Connection connection;
 
     public FlightServiceImp() throws SQLException {
     }
@@ -23,7 +21,7 @@ public class FlightServiceImp implements FlightService{
         boolean bo=false;
         User user = null;
         try {
-            connection = dataSource.getConnection();
+            Connection connection = Link.getConnection();
             state = connection.createStatement();
             String sql="select * from user where id='"+a+"' and password='"+b+"'";
             ResultSet re=state.executeQuery(sql);
@@ -31,8 +29,7 @@ public class FlightServiceImp implements FlightService{
                 bo=true;
             }
             state.close();
-            re.close();
-            dataSource.releaseConnection(connection);
+            Link.close(connection,null,re);
         }catch (SQLException e) {
             e.printStackTrace();
         }
@@ -43,7 +40,7 @@ public class FlightServiceImp implements FlightService{
 
     @Override
     public List<Flight> searchFlight(Flight flight) throws SQLException {
-        connection = dataSource.getConnection();
+        Connection connection = Link.getConnection();
         System.out.println("开始查询机票");
         PreparedStatement state = connection.prepareStatement("select * from ticketinfo where ticketDepart=? and ticketArrive=? and ticketDate=? order by flightTime desc;");
         //PreparedStatement state = connection.prepareStatement("select * from ticketinfo where ticketDepart='上海' and ticketArrive='西安'");
@@ -66,9 +63,8 @@ public class FlightServiceImp implements FlightService{
             flight1.setFlightNumber(result.getString(9));
             flights.add(flight1);
         }
-        result.close();
-        state.close();
-        dataSource.releaseConnection(connection);
+        Link.close(connection,state,result);
+
         return flights;
     }
 
@@ -78,7 +74,7 @@ public class FlightServiceImp implements FlightService{
         System.out.println("开始查询机票");
         PreparedStatement state = null;
         try {
-            connection = dataSource.getConnection();
+            Connection connection = Link.getConnection();
             state = connection.prepareStatement("select * from ticketinfo where ticketDepart=? and ticketArrive=? and ticketDate=? order by ticketPrice desc;");
             //PreparedStatement state = connection.prepareStatement("select * from ticketinfo where ticketDepart='上海' and ticketArrive='西安'");
             state.setString(1, flight.getTicketDepart());
@@ -99,9 +95,7 @@ public class FlightServiceImp implements FlightService{
                 flight1.setFlightNumber(result.getString(9));
                 flights.add(flight1);
             }
-            result.close();
-            state.close();
-            dataSource.releaseConnection(connection);
+            Link.close(connection,state,result);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -110,18 +104,22 @@ public class FlightServiceImp implements FlightService{
     }
 
     @Override
-    public String order(Order order){
+    public String order(int i,String s1,String s2,String s3){
         try {
-            connection = dataSource.getConnection();
+            Connection connection = Link.getConnection();
             String result ="失败";
-            String sql="insert into order(ticketId,userId,username,phone) " +
-                    "values('"+order.getTicketId()+"','"+order.getUserId()+"','"+order.getUsername()+"','"+order.getPhone()+"';";
-            Statement statement=connection.createStatement();
-            int rs=statement.executeUpdate(sql);
+            String sql="insert into orderlist(ticketId,userId,username,phone) values(?,?,?,?)";
+            PreparedStatement state = connection.prepareStatement(sql);
+            state.setInt(1,i);
+            state.setString(2,s1);
+            state.setString(3,s2);
+            state.setString(4,s3);
+            int rs=state.executeUpdate();
             if(rs==1){
                 result = "下订单成功";
             }
-            dataSource.releaseConnection(connection);
+            Link.close(connection,null,null);
+            System.out.println(result);
             return result;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -130,11 +128,11 @@ public class FlightServiceImp implements FlightService{
     }
 
     @Override
-    public List<Order> searchOrders() throws SQLException {
-        connection = dataSource.getConnection();
+    public List<Order> searchOrders(String s) throws SQLException {
+        Connection connection = Link.getConnection();
         System.out.println("开始查询");
-        PreparedStatement state = connection.prepareStatement("select * from orderinfo ");
-
+        PreparedStatement state = connection.prepareStatement("select * from orderlist where userId=?");
+        state.setString(1,s);
         //3、查询数据库并返回结果
         ResultSet result = state.executeQuery();
         List<Order> orders= new ArrayList<Order>();
@@ -147,17 +145,16 @@ public class FlightServiceImp implements FlightService{
             order1.setPhone(result.getString(5));
             orders.add(order1);
         }
-        result.close();
-        state.close();
-        dataSource.releaseConnection(connection);
+        System.out.println(12);
+        Link.close(connection,state,result);
         return orders;
     }
 
     @Override
     public Order searchOrder() throws SQLException {
-        connection = dataSource.getConnection();
+        Connection connection = Link.getConnection();
         Order order=new Order();
-        String sql="select * from orderinfo order by orderId desc limit 1";
+        String sql="select * from orderlist order by orderId desc limit 1";
         PreparedStatement state = connection.prepareStatement(sql);
         ResultSet result = state.executeQuery();
         while (result.next()) {
@@ -167,22 +164,22 @@ public class FlightServiceImp implements FlightService{
             order.setUsername(result.getString(4));
             order.setPhone(result.getString(5));
         }
-        result.close();
-        state.close();
-        dataSource.releaseConnection(connection);
+        Link.close(connection,state,result);
         return order;
     }
 
     @Override
     public Flight searchFlight1(int i) throws SQLException {
         Flight flight=new Flight();
-        connection = dataSource.getConnection();
+        Connection connection = Link.getConnection();
         System.out.println("开始查询机票");
-        PreparedStatement state = connection.prepareStatement("select * from ticketinfo where ticketId=?");
+        String sql="select * from ticketinfo where ticketId=?";
+        System.out.println(sql);
+        PreparedStatement state = connection.prepareStatement(sql);
         state.setInt(1,i);
+        System.out.println("123456");
         //3、查询数据库并返回结果
         ResultSet result = state.executeQuery();
-        List<Flight> flights= new ArrayList<Flight>();
         while (result.next()) {
             flight.setTicketId(result.getInt(1));
             flight.setTicketDepart(result.getString(2));
@@ -194,9 +191,8 @@ public class FlightServiceImp implements FlightService{
             flight.setFlightTime(result.getTime(8));
             flight.setFlightNumber(result.getString(9));
         }
-        result.close();
-        state.close();
-        dataSource.releaseConnection(connection);
-        return null;
+        System.out.println(flight.getCompanyId());
+        Link.close(connection,state,result);
+        return flight;
     }
 }

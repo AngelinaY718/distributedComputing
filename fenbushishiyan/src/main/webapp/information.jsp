@@ -36,7 +36,7 @@
 <body class="page-single bg-grey with-sidebar footer-dark">
 <%
 	int ticketid= Integer.parseInt(request.getParameter("ticketid"));
-	int ticketPrice= Integer.parseInt(request.getParameter("tickerPrice"));
+	int ticketPrice= Integer.parseInt(request.getParameter("ticketPrice"));
 	session.setAttribute("ticketid",ticketid);
 	session.setAttribute("ticketPrice",ticketPrice);
 %>

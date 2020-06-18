@@ -17,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -44,7 +45,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/Java/Proxy1" />
+    <property name="last_opened_file_path" value="E:/JAVAMESSAGE/test" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -70,9 +71,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.26">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="C_and_S.server" />
+      <module name="maven" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="test" />
       <module name="maven" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -152,6 +160,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.test" />
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.26" />
     </list>
@@ -170,6 +179,10 @@
       <workItem from="1592139205148" duration="24500000" />
       <workItem from="1592270799916" duration="699000" />
       <workItem from="1592271611869" duration="13486000" />
+      <workItem from="1592314739462" duration="4105000" />
+      <workItem from="1592318980295" duration="390000" />
+      <workItem from="1592358450749" duration="5353000" />
+      <workItem from="1592383218141" duration="5495000" />
     </task>
     <servers />
   </component>

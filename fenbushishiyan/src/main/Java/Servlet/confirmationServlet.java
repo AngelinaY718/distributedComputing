@@ -29,13 +29,11 @@ public class confirmationServlet extends HttpServlet {
         FlightService flightService=proxyHandler1.getProxy(FlightService.class,"127.0.0.1",12000);
         try {
             order=flightService.searchOrder();
-            flight=flightService.searchFlight1(order.getTicketId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
         RequestDispatcher rd = request.getRequestDispatcher("confirmation.jsp");
         context.setAttribute("order",order);
-        context.setAttribute("flight",flight);
         System.out.println(3);
         rd.forward(request,response);
     }
