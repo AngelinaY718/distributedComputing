@@ -130,7 +130,10 @@
 													</li>
 												</c:if>
 											</c:forEach>
-											${applicationScope.order.getTicketId()}
+											<li>
+												<span class="title">TicketId: ${applicationScope.order.getTicketId()}</span>
+											</li>
+
 											<li>
 												<span class="title">Name:${applicationScope.order.getUsername()}</span>
 											</li>

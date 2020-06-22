@@ -26,7 +26,7 @@ public class confirmationServlet extends HttpServlet {
         Flight flight=new Flight();
 
         ProxyHandler1 proxyHandler1=new ProxyHandler1();
-        FlightService flightService=proxyHandler1.getProxy(FlightService.class,"127.0.0.1",12000);
+        FlightService flightService=proxyHandler1.getProxy(FlightService.class,"39.101.217.212",12000);
         try {
             order=flightService.searchOrder();
         } catch (SQLException e) {

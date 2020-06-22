@@ -27,7 +27,7 @@ public class orderlistServlet extends HttpServlet {
         String name= (String) session.getAttribute("name");
 
         ProxyHandler1 proxyHandler1=new ProxyHandler1();
-        FlightService flightService=proxyHandler1.getProxy(FlightService.class,"127.0.0.1",12000);
+        FlightService flightService=proxyHandler1.getProxy(FlightService.class,"39.101.217.212",12000);
         try {
             List<Order> orders=flightService.searchOrders(name);
             System.out.println(123);

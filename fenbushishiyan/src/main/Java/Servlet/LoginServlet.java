@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
         String password=request.getParameter("Password");
         HttpSession session = request.getSession();
         ProxyHandler1 proxyHandler1=new ProxyHandler1();
-        FlightService flight = proxyHandler1.getProxy(FlightService.class,"127.0.0.1",12000);
+        FlightService flight = proxyHandler1.getProxy(FlightService.class,"39.101.217.212",12000);
         boolean bo=flight.login(name,password);
         if(bo){
             RequestDispatcher rd = request.getRequestDispatcher("homepage.jsp") ;

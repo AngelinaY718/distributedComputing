@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RedisImp implements Redis{
-    private static String url="39.101.217.212";
+    private static String url="39.99.214.110";
 
     public RedisImp() {
     }
@@ -15,9 +15,9 @@ public class RedisImp implements Redis{
     public boolean pay(int price) {
 
         Jedis jedis = new Jedis(url, 6379);
+        jedis.auth("123456");
         System.out.println(jedis.ping());
 
-        jedis.set("money", String.valueOf(1200));
 
         String s=jedis.get("money");
         System.out.println("money:"+s);
@@ -32,4 +32,5 @@ public class RedisImp implements Redis{
         }
         return false;
     }
+
 }

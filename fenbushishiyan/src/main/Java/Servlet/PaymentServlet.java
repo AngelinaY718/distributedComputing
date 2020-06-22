@@ -33,8 +33,8 @@ public class PaymentServlet extends HttpServlet {
         System.out.println(price);
 
         ProxyHandler1 proxyHandler1=new ProxyHandler1();
-        Redis redis = proxyHandler1.getProxy(Redis.class,"127.0.0.1",12000);
-        FlightService flightService=proxyHandler1.getProxy(FlightService.class,"127.0.0.1",12000);
+        Redis redis = proxyHandler1.getProxy(Redis.class,"39.99.214.110",12000);
+        FlightService flightService=proxyHandler1.getProxy(FlightService.class,"39.101.217.212",12000);
 
         if(hbcheckCode.equals(hbCode)){
             boolean bo=redis.pay(price);

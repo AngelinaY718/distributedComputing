@@ -44,7 +44,7 @@ public class HomepageServlet extends HttpServlet {
         }
 
         ProxyHandler1 proxyHandler1=new ProxyHandler1();
-        FlightService flight = proxyHandler1.getProxy(FlightService.class,"127.0.0.1",12000);
+        FlightService flight = proxyHandler1.getProxy(FlightService.class,"39.101.217.212",12000);
         try {
             List<Flight> flights=flight.searchFlight(searchflight);
             if(flights.size()!=0){
