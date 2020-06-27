@@ -1,9 +1,7 @@
 package Handler;
 
-import com.yky.entity.request;
-import com.yky.iml.ATMcard;
-import com.yky.sockerclient;
-import com.yky.xmlandproxy.XmlReader;
+import C_and_S.sockerclient;
+import JavaBean.request;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -14,7 +12,7 @@ public class ProxyHandler1{
 	
 	private sockerclient sock = new sockerclient();
 	@SuppressWarnings("unchecked")
-	public  <T> T getProxy(Class<T> clazz,String ip,int i){
+	public  <T> T getProxy(Class<T> clazz, final String ip, final int i){
 		InvocationHandler handler=new InvocationHandler() {
 			@Override
 			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
@@ -29,40 +27,4 @@ public class ProxyHandler1{
 		return (T) Proxy.newProxyInstance(clazz.getClassLoader(),
 				new Class<?>[]{clazz},handler);
 	}
-	/*private ATMcard object;
-	
-	public ProxyHandler1(ATMcard object){
-		this.object = object;
-	}
-	
-	@Override
-	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
-		XmlReader.readXml("aop.xml");
-		Class<?> clazz = check.class;
-		Object result=null;
-		if(method.getName().equals("login")){
-			//处理before方法
-			if(beforeMethod!=null&&beforeMethod.length()>0){
-				Method m=clazz.getMethod(beforeMethod);
-				Object obj = clazz.newInstance();
-				m.invoke(obj,args);
-			}
-
-			//处理目标方法
-			result= method.invoke(object, args);
-
-			//处理after方法
-			if(afterMethod!=null&&afterMethod.length()>0){
-				Method m=clazz.getMethod(afterMethod,String.class,String.class);
-				Object obj = clazz.newInstance();
-				m.invoke(obj,args);
-			}
-		}
-		else {
-			result= method.invoke(object, args);
-		}
-		return result;
-	}*/
-
 }

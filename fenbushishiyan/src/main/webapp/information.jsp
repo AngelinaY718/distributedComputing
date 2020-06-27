@@ -34,6 +34,12 @@
 </head>
 
 <body class="page-single bg-grey with-sidebar footer-dark">
+<%
+	int ticketid= Integer.parseInt(request.getParameter("ticketid"));
+	int ticketPrice= Integer.parseInt(request.getParameter("ticketPrice"));
+	session.setAttribute("ticketid",ticketid);
+	session.setAttribute("ticketPrice",ticketPrice);
+%>
 
 	<!-- Document Full Container
 	============================================= -->
@@ -80,7 +86,7 @@
 										<li>
 											<a href="javascript:;">更多</a>
 											<ul class="sub-menu">
-												<li><a href="orderlist.jsp">我的订单</a></li>
+												<li><a href="orderlist.do">我的订单</a></li>
 											</ul><!-- .sub-menu end -->
 										</li>
 									</ul><!-- #menu-main end -->
@@ -117,7 +123,7 @@
 													<div class="block-title">
 														<h3><span class="colored">01</span> USer Info</h3>
 													</div><!-- .block-title end -->
-													<form id="form-hotel-booking" action="payment.jsp">
+													<form id="form-hotel-booking" action="information.do" method="post">
 														<div class="form-content">
 															<div class="form-group">
 																<div class="fields-row fields-2">

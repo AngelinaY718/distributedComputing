@@ -10,7 +10,7 @@ public class Flight implements Serializable {
     private int ticketId;
     private String ticketDepart;
     private String ticketArrive;
-    private Date ticketDate;
+    private int ticketDate;
     private int companyId;
     private int ticketCount;//
     private int ticketPrice;
@@ -56,11 +56,11 @@ public class Flight implements Serializable {
         this.ticketArrive = ticketArrive;
     }
 
-    public Date getTicketDate() {
+    public int getTicketDate() {
         return ticketDate;
     }
 
-    public void setTicketDate(Date ticketDate) {
+    public void setTicketDate(int ticketDate) {
         this.ticketDate = ticketDate;
     }
 

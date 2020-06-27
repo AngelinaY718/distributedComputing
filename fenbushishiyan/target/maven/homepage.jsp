@@ -80,7 +80,7 @@
 										<li>
 											<a href="javascript:;">更多</a>
 											<ul class="sub-menu">
-												<li><a href="orderlist.jsp">我的订单</a></li>
+												<li><a href="orderlist.do">我的订单</a></li>
 											</ul><!-- .sub-menu end -->
 										</li>
 									</ul><!-- #menu-main end -->
@@ -110,27 +110,26 @@
 									<div class="banner-reservation-tabs">
 										<ul class="br-tabs-content">
 											<li class="active">
-												<form class="form-banner-reservation form-inline style-2 form-h-50" action="searchresult.jsp">
+												<form class="form-banner-reservation form-inline style-2 form-h-50" action="./homepage.do" method="post">
+													<div class="form-group">
+														<input type="text" name="brTimeStart" class="" placeholder="今日" list="datelist">
+														<datalist id="datelist">
+															<option>今日</option>
+															<option>明日</option>
+															<option>后天</option>
+														</datalist>
+													</div><!--.form-group end -->
 													<div class="form-group">
 														<input type="text" name="brPlaceStart" class="form-control" placeholder="From" list="fromlist">
 														<datalist id="fromlist">
-															<option>北京</option>
 															<option>上海</option>
 														</datalist>
 													</div><!-- .form-group end -->
 													<div class="form-group">
 														<input type="text" name="brPlaceEnd" class="form-control" placeholder="To" list="tolist">
 														<datalist id="tolist">
-															<option>北京</option>
-															<option>上海</option>
-														</datalist>
-													</div><!-- .form-group end -->
-													<div class="form-group">
-														<input type="text" name="brTimeStart" class="form-control" placeholder="今日" list="datelist">
-														<datalist id="datelist">
-															<option>今日</option>
-															<option>明日</option>
-															<option>后天</option>
+															<option>西安</option>
+															<option>大连</option>
 														</datalist>
 													</div><!-- .form-group end -->
 													<div class="form-group">

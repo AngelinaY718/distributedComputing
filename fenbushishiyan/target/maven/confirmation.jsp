@@ -1,4 +1,7 @@
+
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -80,7 +83,7 @@
 										<li>
 											<a href="javascript:;">更多</a>
 											<ul class="sub-menu">
-												<li><a href="orderlist.jsp">我的订单</a></li>
+												<li><a href="orderlist.do">我的订单</a></li>
 											</ul><!-- .sub-menu end -->
 										</li>
 									</ul><!-- #menu-main end -->
@@ -114,23 +117,28 @@
 											订票成功！您的信息如下！
 										</div><!-- .booking-msg-confirm end -->
 										<ul class="list-traveller-info">
+											<c:forEach items="${applicationScope.list}" var="item" varStatus="status">
+												<c:if test="${item.getTicketId()==applicationScope.order.getTicketId()}">
+													<li>
+														<span class="title">Flight Number:${item.getFlightNumber()}</span>
+													</li>
+													<li>
+														<span class="title">Airport：${item.getTicketDepart()}&nbsp;TO &nbsp;${item.getTicketArrive()}</span>
+													</li>
+													<li>
+														<span class="title">Money：${item.getTicketPrice()}</span>
+													</li>
+												</c:if>
+											</c:forEach>
 											<li>
-												<span class="title">Flight Number:</span>
+												<span class="title">TicketId: ${applicationScope.order.getTicketId()}</span>
+											</li>
+
+											<li>
+												<span class="title">Name:${applicationScope.order.getUsername()}</span>
 											</li>
 											<li>
-												<span class="title">Name:</span>
-											</li>
-											<li>
-												<span class="title">Phone：</span>
-											</li>
-											<li>
-												<span class="title">Date：</span>
-											</li>
-											<li>
-												<span class="title">Airport：</span>
-											</li>
-											<li>
-												<span class="title">Money：</span>
+												<span class="title">Phone：${applicationScope.order.getPhone()}</span>
 											</li>
 										</ul><!-- .list-info end -->
 									</div><!-- .content-main end -->

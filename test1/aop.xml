@@ -1,7 +1,0 @@
-<aops>
-    <aop>
-    <method>checkIdentifyer</method>
-    <type>after</type>
-    <method>login</method>
-    </aop>
-</aops>
